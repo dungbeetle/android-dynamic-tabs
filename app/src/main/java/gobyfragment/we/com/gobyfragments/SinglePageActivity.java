@@ -40,7 +40,10 @@ public class SinglePageActivity extends FragmentActivity {
             }
         });
         this.loadingView = this.findViewById(R.id.loading);
-        titleLayout.setBackgroundColor(Color.argb(100, 243, 91, 37));
+        titleLayout.setBackgroundColor(Color.argb(255,
+                Integer.valueOf(ApplicationConfig.getInstance().getNavBarColor().getR()),
+                Integer.valueOf(ApplicationConfig.getInstance().getNavBarColor().getG()),
+                Integer.valueOf(ApplicationConfig.getInstance().getNavBarColor().getB())));
         WebView webView = (WebView) this.findViewById(R.id.webview_layout);
         webView.setWebChromeClient(new WebChromeClient() {
             @Override

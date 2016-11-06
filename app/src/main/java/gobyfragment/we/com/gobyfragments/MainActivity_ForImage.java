@@ -1,5 +1,6 @@
 package gobyfragment.we.com.gobyfragments;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -66,6 +67,11 @@ public class MainActivity_ForImage extends FragmentActivity implements View.OnCl
         thirdFrame.setOnClickListener(this);
         fourthFrame.setOnClickListener(this);
         fifthFrame.setOnClickListener(this);
+
+        tabLinearLayout.setBackgroundColor(Color.argb(255,
+                Integer.valueOf(ApplicationConfig.getInstance().getTabColor().getR()),
+                Integer.valueOf(ApplicationConfig.getInstance().getTabColor().getG()),
+                Integer.valueOf(ApplicationConfig.getInstance().getTabColor().getB())));
 
         new HttpGetRequest("http://47.90.91.22/suface1/config.json",
                 new HashMap<String, String>(),
