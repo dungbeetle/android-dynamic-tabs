@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="gobyfragment.we.com.gobyfragments.MainActivity_ForImage">
+
+    <RelativeLayout
+        android:id="@+id/titleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:padding="4dp"
+        >
+
+        <RelativeLayout
+            android:id="@+id/back_layout"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:paddingLeft="2dp"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/backImage"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_centerVertical="true"
+                android:padding="4dp"
+                android:src="@drawable/em_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/backImage"
+                android:layout_centerVertical="true"
+                android:textStyle="bold"
+                android:layout_marginLeft="-8dp"
+                android:textSize="18dp"
+                android:text="返回"
+                android:textColor="#fff"/>
+        </RelativeLayout>
+
+
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:maxWidth="120dp"
+            android:textColor="#fff"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+
+    <FrameLayout
+        android:layout_below="@+id/titleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <WebView
+            android:id="@+id/webview_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            android:focusable="false" />
+    </FrameLayout>
+
+    <include
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        layout="@layout/loading_bar" />
+
+</RelativeLayout>

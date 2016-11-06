@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true" >
+    <LinearLayout
+        android:id="@+id/tab"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="#f9f9f9"
+        android:gravity="bottom"
+        android:orientation="horizontal" >
+        <FrameLayout
+            android:id="@+id/firstFrame"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1.0"
+            android:visibility="gone"
+            >
+            <ImageView
+                android:id="@+id/firstImg"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:src="@drawable/tools_nomal"
+                />
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/secondFrame"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:visibility="gone"
+            android:layout_weight="1.0">
+            <ImageView
+                android:id="@+id/secondImg"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:src="@drawable/tools_nomal"
+                />
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/thirdFrame"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:visibility="gone"
+            android:layout_weight="1.0" >
+            <ImageView
+                android:id="@+id/thirdImg"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/tools_nomal"
+                android:layout_gravity="center"
+                />
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/fourthFrame"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:visibility="gone"
+            android:layout_weight="1.0" >
+            <ImageView
+                android:id="@+id/fourthImg"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/tools_nomal"
+                android:layout_gravity="center"
+                />
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/fifthFrame"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:visibility="gone"
+            android:layout_weight="1.0" >
+            <ImageView
+                android:id="@+id/fifthImg"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/tools_nomal"
+                android:layout_gravity="center"
+                />
+        </FrameLayout>
+    </LinearLayout>
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_above="@id/tab"
+        android:background="#dddddd" >
+    </View>
+
+    <FrameLayout
+        android:id="@+id/frame_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/line"
+        android:background="#ffffff" >
+    </FrameLayout>
+
+</RelativeLayout>
