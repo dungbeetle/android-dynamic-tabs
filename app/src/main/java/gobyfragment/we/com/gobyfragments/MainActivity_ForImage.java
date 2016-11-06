@@ -8,8 +8,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -26,8 +29,10 @@ public class MainActivity_ForImage extends FragmentActivity implements View.OnCl
     private ImageView firstImage, secondImage, thirdImage, fourthImage, fifthImage;
     private ImageView[] ImageViewArray;
 
-    private FrameLayout firstFrame, secondFrame, thirdFrame, fourthFrame, fifthFrame;
+    private FrameLayout firstFrame, secondFrame, thirdFrame, fourthFrame, fifthFrame, frameContent;
     private FrameLayout[] FrameLayoutArray;
+
+    private LinearLayout tabLinearLayout;
 
     private WebViewFragment firstFragment, secondFragment, thirdFragment, fourthFragment, fifthFragment;
 
@@ -37,6 +42,8 @@ public class MainActivity_ForImage extends FragmentActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_image);
 
+        tabLinearLayout = (LinearLayout) this.findViewById(R.id.tab);
+        frameContent = (FrameLayout) this.findViewById(R.id.frame_content);
 
         firstImage = (ImageView) this.findViewById(R.id.firstImg);
         secondImage = (ImageView) this.findViewById(R.id.secondImg);
@@ -107,6 +114,26 @@ public class MainActivity_ForImage extends FragmentActivity implements View.OnCl
             thirdFrame.setVisibility(View.GONE);
             fifthFrame.setVisibility(View.GONE);
             fourthFrame.setVisibility(View.GONE);
+        }
+        if(ApplicationConfig.getInstance().getPageModelMap().size() < 2){
+            firstFrame.setVisibility(View.VISIBLE);
+            secondFrame.setVisibility(View.GONE);
+            thirdFrame.setVisibility(View.GONE);
+            fifthFrame.setVisibility(View.GONE);
+            fourthFrame.setVisibility(View.GONE);
+        }
+        if(ApplicationConfig.getInstance().getPageModelMap().size() <=1){
+            firstFrame.setVisibility(View.GONE);
+            secondFrame.setVisibility(View.GONE);
+            thirdFrame.setVisibility(View.GONE);
+            fifthFrame.setVisibility(View.GONE);
+            fourthFrame.setVisibility(View.GONE);
+
+            tabLinearLayout.setVisibility(View.GONE);
+
+            RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
+                    RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
+            frameContent.setLayoutParams(params);
         }
 
     }

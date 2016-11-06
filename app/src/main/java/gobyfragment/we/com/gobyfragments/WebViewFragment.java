@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebChromeClient;
-import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -28,7 +27,7 @@ public class WebViewFragment extends Fragment {
 
     private RelativeLayout titleLayout;
 
-    private  String indexUrl;
+    private String indexUrl;
 
     private View loadingView;
 
@@ -41,7 +40,10 @@ public class WebViewFragment extends Fragment {
             this.titleView = (TextView) rootView.findViewById(R.id.title);
             this.titleLayout = (RelativeLayout) rootView.findViewById(R.id.titleLayout);
             this.loadingView = rootView.findViewById(R.id.loading);
-            titleLayout.setBackgroundColor(Color.argb(100, 243, 91, 37));
+            titleLayout.setBackgroundColor(Color.argb(255,
+                    Integer.valueOf(ApplicationConfig.getInstance().getNavBarColor().getR()),
+                    Integer.valueOf(ApplicationConfig.getInstance().getNavBarColor().getG()),
+                    Integer.valueOf(ApplicationConfig.getInstance().getNavBarColor().getB())));
             WebView webView = (WebView) rootView.findViewById(R.id.webview_layout);
             webView.setWebChromeClient(new WebChromeClient() {
                 @Override
@@ -50,11 +52,19 @@ public class WebViewFragment extends Fragment {
                     titleView.setText(title == null ? "" : title);
                 }
             });
-            webView.setWebViewClient(new WebViewClient(){
+            webView.setWebViewClient(new WebViewClient() {
+//                @Override
+//                public boolean shouldOverrideUrlLoading(WebView view, String url) {
+//                    if(){
+//
+//                    }
+//                    return super.shouldOverrideUrlLoading(view, url);
+//                }
 
-                @Override
+                //                @Override
                 public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                    if(indexUrl != null && url.equalsIgnoreCase(url)){
+                    System.out.println("############URL is  + " + url);
+                    if (indexUrl != null && !indexUrl.equalsIgnoreCase(url)) {
                         Intent intent = new Intent(getActivity(), SinglePageActivity.class);
                         intent.putExtra("url", url);
                         startActivity(intent);
