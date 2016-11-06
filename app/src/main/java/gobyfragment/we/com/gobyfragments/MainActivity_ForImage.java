@@ -68,11 +68,6 @@ public class MainActivity_ForImage extends FragmentActivity implements View.OnCl
         fourthFrame.setOnClickListener(this);
         fifthFrame.setOnClickListener(this);
 
-        tabLinearLayout.setBackgroundColor(Color.argb(255,
-                Integer.valueOf(ApplicationConfig.getInstance().getTabColor().getR()),
-                Integer.valueOf(ApplicationConfig.getInstance().getTabColor().getG()),
-                Integer.valueOf(ApplicationConfig.getInstance().getTabColor().getB())));
-
         new HttpGetRequest("http://47.90.91.22/suface1/config.json",
                 new HashMap<String, String>(),
                 requestTabs,
@@ -91,6 +86,10 @@ public class MainActivity_ForImage extends FragmentActivity implements View.OnCl
             switch (msg.what) {
                 case 200:
                     ApplicationConfig.getInstance().init((String) msg.obj);
+                    tabLinearLayout.setBackgroundColor(Color.argb(255,
+                            Integer.valueOf(ApplicationConfig.getInstance().getTabColor().getR()),
+                            Integer.valueOf(ApplicationConfig.getInstance().getTabColor().getG()),
+                            Integer.valueOf(ApplicationConfig.getInstance().getTabColor().getB())));
                     initImageBackGround();
                     initTabs();
                     break;
